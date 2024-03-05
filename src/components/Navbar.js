@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+
 
 const Navbar = ({ title, about, darkMode, handleDarkMode }) => {
   return (
@@ -23,11 +22,12 @@ const Navbar = ({ title, about, darkMode, handleDarkMode }) => {
           </ul>
           <button
             type="button"
-            className="btn"
+            className={`btn ${darkMode ? 'btn-light' : 'btn-dark'}`} // Change button color based on dark mode
             onClick={handleDarkMode}
           >
-            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+            <i className={`fa ${darkMode ? 'fa-sun' : 'fa-moon'}`}></i> {/* Use FontAwesome icon class directly */}
           </button>
+         
           <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
             <button className="btn btn-outline-success" type="submit">Search</button>
